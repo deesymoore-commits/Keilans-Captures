@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!-- Keilan Moore -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Keilans Captures - Showcase of amazing photos and captures by Keilan Moore">
+    <meta name="keywords" content="photography, captures, Keilan Moore, photos">
+    <meta name="author" content="Keilan Moore">
+    <title>Keilans Captures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylescss/style.css">
+    <script src="scriptsjs/script.js" defer></script>
+</head>
+<body>
+    <nav>
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('about')">About Me</a>
+        <a href="#" onclick="showSection('photos')">Photos</a>
+        <!-- React and ReactDOM CDN -->
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <a href="#" onclick="showSection('contact')">Contact</a>
+    </nav>
+    <section id="home">
+        <!-- React root element -->
+        <div id="root"></div>
+                <!-- React App for heading and button -->
+                <script type="text/javascript">
+                    const root = ReactDOM.createRoot(document.getElementById('root'));
+                    function App() {
+                        const [dark, setDark] = React.useState(document.body.classList.contains('dark-mode'));
+                        const [message, setMessage] = React.useState('');
+                        const [showMsg, setShowMsg] = React.useState(false);
+                        const toggleDarkMode = () => {
+                            const newDark = !dark;
+                            setDark(newDark);
+                            document.body.classList.toggle('dark-mode', newDark);
+                            setMessage(newDark ? 'Dark mode enabled!' : 'Dark mode disabled!');
+                            setShowMsg(true);
+                            setTimeout(() => setShowMsg(false), 5000);
+                        };
+                        return React.createElement(
+                            React.Fragment,
+                            null,
+                            React.createElement('h1', null, 'Keilans Captures'),
+                            React.createElement('h2', { style: { fontFamily: "'Lobster', cursive", fontWeight: 'normal', fontSize: '1.5em', marginTop: '-10px', marginBottom: '24px', color: '#444', textAlign: 'center' } },
+                                'a personal photography portfolio and custom photo packages page'
+                            ),
+                            React.createElement(
+                                'button',
+                                { id: 'darkModeToggle', className: 'dark-mode-toggle', onClick: toggleDarkMode },
+                                dark ? 'Disable Dark Mode' : 'Enable Dark Mode'
+                            ),
+                            showMsg && message && React.createElement(
+                                'div',
+                                {
+                                    style: {
+                                        position: 'fixed',
+                                        bottom: '30px',
+                                        right: '30px',
+                                        background: dark ? '#222' : '#fff',
+                                        color: dark ? '#fff' : '#222',
+                                        padding: '16px 24px',
+                                        borderRadius: '8px',
+                                        boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                                        zIndex: 9999,
+                                        fontSize: '1.1em',
+                                        transition: 'opacity 0.3s',
+                                    }
+                                },
+                                message
+                            )
+                        );
+                    }
+                    root.render(React.createElement(App));
+                </script>
+        <!-- Heading and button now rendered by React -->
+    </section>
+    <section id="about">
+        <h2>About Me</h2>
+        <div style="position:relative; width:100%; height:auto; display:block; margin:10px 0;">
+            <img id="trainImage" src="assets/images/durango.silverton.train.jpg" alt="Durango and Silverton Train scenic view" style="width:100%; height:auto; display:block;">
+            <div id="trainDesc" class="train-desc">
+                The Durango & Silverton Narrow Gauge Railroad is a historic steam train that travels through scenic mountain landscapes, offering breathtaking views and a unique experience of Colorado's rich railroad history.
+            </div>
+        </div>
+        <div style="margin: 20px 0; text-align:center;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/mZ4WO67Rsz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <p>My name is Keilan, I am the owner of this site as well as a manager for a team of photographers at <a href="https://www.durangotrain.com/" target="_blank">D&SNGRR</a>. I started becoming interested in photography when I started working at the railroad and was taught basic photography skills. Now I currently run the company site and my own team. About a year into my work there, I purchased a personal camera to play around with. This is when I started getting into photography. This page will highlight some recent captures, as well as photos I have taken along the journey.</p>
+    </section>
+    <section id="photos">
+        <h2>Photo Gallery</h2>
+        <ul>
+            <li style="display: flex; align-items: center;">
+                <img src="assets/images/House.jpg" alt="House">
+                <span style="margin-left: 32px; max-width: 400px; font-size: 1.1em; color: #444;">A small green riverside structure sits framed by dense foliage, blending rustic charm with nature. Sunlight highlights surrounding trees and a quiet stream below, creating a peaceful, secluded atmosphere.</span>
+            </li>
+            <li style="display: flex; align-items: center;">
+                <img src="assets/images/vert mountain.jpg" alt="Vertical Mountain">
+                <span style="margin-left: 32px; max-width: 400px; font-size: 1.1em; color: #444;">Rolling mountains stretch beneath low clouds, with mist drifting across forested hills. Autumn colors add warmth to the cool, moody landscape.</span>
+            </li>
+            <li style="display: flex; align-items: center;">
+                <img src="assets/images/landscape.jpg" alt="Landscape">
+                <span style="margin-left: 32px; max-width: 400px; font-size: 1.1em; color: #444;">A misty mountainside rises above a grassy field, with dense forest climbing the slope. Low clouds obscure the peaks, giving the landscape a quiet, atmospheric feel.</span>
+            </li>
+            <li style="display: flex; align-items: center;">
+                <img src="assets/images/vert fog.jpg" alt="Vertical Fog">
+                <span style="margin-left: 32px; max-width: 400px; font-size: 1.1em; color: #444;">Fog blankets rugged hills, partially revealing autumn-toned slopes and scattered trees. The scene feels dramatic and mysterious, with soft clouds hugging the terrain.</span>
+            </li>
+        </ul>
+                <!-- Modal for fullscreen image view -->
+                <div id="photoModal" style="display:none; position:fixed; z-index:10000; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.9); align-items:center; justify-content:center;">
+                    <span id="closeModal" style="position:absolute; top:32px; right:48px; color:#fff; font-size:3em; cursor:pointer; z-index:10001;">&times;</span>
+                    <img id="modalImg" src="" alt="Full View" style="max-width:90vw; max-height:90vh; border-radius:12px; box-shadow:0 4px 32px rgba(0,0,0,0.5); display:block; margin:auto;">
+                </div>
+        </section>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form id="contactForm">
+            <div style="margin-bottom: 18px; text-align: center; font-family: 'Lobster', cursive; font-size: 1.2em; color: #444;">
+                Purchase a custom photo package
+            </div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <span id="react-contact-btn" style="display:inline-block; vertical-align:middle; margin-left:10px;"></span>
+        </form>
+    </section>
+</body>
+<!-- React Contact Submit Button -->
+<script type="text/javascript">
+    const contactBtnRoot = document.getElementById('react-contact-btn');
+    if (contactBtnRoot) {
+        const ContactButton = () => {
+            const [submitted, setSubmitted] = React.useState(false);
+            const [dark, setDark] = React.useState(document.body.classList.contains('dark-mode'));
+            React.useEffect(() => {
+                const observer = new MutationObserver(() => {
+                    setDark(document.body.classList.contains('dark-mode'));
+                });
+                observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+                return () => observer.disconnect();
+            }, []);
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                setSubmitted(true);
+                setTimeout(() => setSubmitted(false), 4000);
+            };
+            return React.createElement(
+                React.Fragment,
+                null,
+                React.createElement(
+                    'button',
+                    {
+                        type: 'submit',
+                        className: 'dark-mode-toggle',
+                        style: { marginTop: '16px' },
+                        onClick: handleSubmit
+                    },
+                    'Submit'
+                ),
+                submitted && React.createElement(
+                    'div',
+                    {
+                        style: {
+                            position: 'fixed',
+                            bottom: '30px',
+                            right: '30px',
+                            background: dark ? '#222' : '#fff',
+                            color: dark ? '#fff' : '#222',
+                            padding: '16px 24px',
+                            borderRadius: '8px',
+                            boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                            zIndex: 9999,
+                            fontSize: '1.1em',
+                            transition: 'opacity 0.3s',
+                        }
+                    },
+                    'Thank you for contacting us!'
+                )
+            );
+        };
+        ReactDOM.createRoot(contactBtnRoot).render(React.createElement(ContactButton));
+    }
+</script>
+</body>
+</html>
